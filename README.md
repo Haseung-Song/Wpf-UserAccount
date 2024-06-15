@@ -3,7 +3,9 @@
 
 ## 1. 사용 언어, UI, 사용 기술
 ### 1) 사용 언어: C#
+
 ### 2) 사용 개발 프레임워크(UI): Wpf
+
 ### 3) 사용 기술: MVVM 아키텍처(디자인) 패턴
 
 
@@ -14,6 +16,7 @@
      
    <2> RelayCommand.cs 파일
    - ICommand를 상속 받아 UI에서 이벤트 받아 처리하는 함수 구현 1
+
      
 ### 2) Converters 폴더
    <1> SecureStringHelper.cs 파일
@@ -23,6 +26,7 @@
    <2> VisibilityConverter.cs 파일
    - [사용자 패스워드 표시] 체크 박스: [BooleanToVisibilityConverter] 변환 함수
    - [사용자 패스워드 표시] 체크 박스: [InverseBooleanToVisibilityConverter] 역변환 함수
+
    
 ### 3) CustomControls 폴더
    <1> BindablePasswordBox.xaml 파일
@@ -35,6 +39,7 @@
    - [DependencyProperty] IsPasswordVisibleProperty 추가
    - [DependencyProperty] PasswordProperty 추가
    - [DependencyProperty] IsClearProperty 추가
+
      
 ### 4) Images 폴더
    <1> back-image.jpg 이미지 파일
@@ -51,6 +56,7 @@
      
    <5> user-icon.png 이미지 파일
    - [사용자 이름] 아이콘
+
    
 ### 5) ViewModels 폴더
    <1> LoginVM.cs 파일
@@ -58,6 +64,7 @@
    - [Model]: 프로퍼티(데이터 처리 및 저장)
    - [ViewModel]: [View]에서 들어온 데이터 가공 및 [Model]과 통신 후, 데이터 바인딩으로 [View] 갱신
    - [Main] 기능 및 함수 구현
+
    
 ### 6) Views 폴더
    <1> LoginView.xaml 파일
@@ -75,7 +82,9 @@
 
 ## 3. 버튼
 ### 1) [사용자 회원가입]
+
 ### 2) [사용자 로그인]
+
 ### 3) [사용자 패스워드 초기화]
 
 
@@ -87,6 +96,7 @@
    <3> [사용자 로그인] 기능
    <4> [사용자 정보 초기화] 기능
    <5> [사용자 패스워드 초기화] 기능
+
    
 ### 2) 함수
    <1> [사용자 이름] 유효성 검사 함수
