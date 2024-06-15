@@ -1,5 +1,6 @@
-# [Side Project]: [File System] 활용 사용자 계정 생성 및 로그인
+# [Side Project]
 
+# [File System] 활용 사용자 계정 생성 및 로그인
 
 ## 1. 사용 언어, UI, 사용 기술
 ### 1) 사용 언어: C#
@@ -116,4 +117,3 @@
 
 ## 5. [App] 실행 시, 화면 이미지
 <img width="551" alt="사용자 정보 화면" src="https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/7bec9614-f28d-4663-ac2e-1361374e1981">
-
