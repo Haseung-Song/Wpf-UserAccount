@@ -1,20 +1,30 @@
-# [Side Project] # [파일 시스템(File System)] 활용 사용자 계정 생성 및 로그인 #
+# [Side Project] #
 
-# 1. 사용 언어, UI, 사용 기술
+
+# [파일 시스템(File System)] 활용 사용자 계정 생성 및 로그인 #
+
+
+## 1. 사용 언어, UI, 사용 기술
+
+
 # 1) 사용 언어: C#
+
+
 # 2) 사용 개발 프레임워크(UI): Wpf
+
+
 # 3) 사용 기술: MVVM 아키텍처(디자인) 패턴
 
 
-# 2. 구조: Wpf-UserAccount 프로젝트
-# 1) Common 폴더
+## 2. 구조: Wpf-UserAccount 프로젝트
+### 1) Common 폴더
    <1> ParameterRelayCommand.cs 파일
    - ICommand를 상속 받아 UI에서 이벤트 받아 처리하는 함수 구현 2
      
    <2> RelayCommand.cs 파일
    - ICommand를 상속 받아 UI에서 이벤트 받아 처리하는 함수 구현 1
      
-# 2) Converters 폴더
+### 2) Converters 폴더
    <1> SecureStringHelper.cs 파일
    - [사용자 패스워드] 입력 칸: [기밀 텍스트(SecureString) => 일반 텍스트(UnsecureString)] 변환 함수
    - [사용자 패스워드] 입력 칸: [일반 텍스트(SecureString) => 기밀 텍스트(UnsecureString)] 변환 함수
@@ -23,7 +33,7 @@
    - [사용자 패스워드 표시] 체크 박스: [BooleanToVisibilityConverter] 변환 함수
    - [사용자 패스워드 표시] 체크 박스: [InverseBooleanToVisibilityConverter] 역변환 함수
    
-# 3) CustomControls 폴더
+### 3) CustomControls 폴더
    <1> BindablePasswordBox.xaml 파일
    - [View]: 마이너 [APP]의 [Wpf] 및 [View] 담당
    - [Wpf]: [PasswordBox] 정보 화면
@@ -35,7 +45,7 @@
    - [DependencyProperty] PasswordProperty 추가
    - [DependencyProperty] IsClearProperty 추가
      
-# 4) Images 폴더
+### 4) Images 폴더
    <1> back-image.jpg 이미지 파일
    - [배경(백그라운드)] 아이콘
      
@@ -51,14 +61,14 @@
    <5> user-icon.png 이미지 파일
    - [사용자 이름] 아이콘
    
-# 5) ViewModels 폴더
+### 5) ViewModels 폴더
    <1> LoginVM.cs 파일
    - [Model] 및 [ViewModel] 통합
    - [Model]: 프로퍼티(데이터 처리 및 저장)
    - [ViewModel]: [View]에서 들어온 데이터 가공 및 [Model]과 통신 후, 데이터 바인딩으로 [View] 갱신
    - [Main] 기능 및 함수 구현
    
-# 6) Views 폴더
+### 6) Views 폴더
    <1> LoginView.xaml 파일
    - [View]: 메인 [App]의 [Wpf] 및 [View] 담당
    - [Wpf]: [사용자] 정보 화면
@@ -72,14 +82,14 @@
    - [창닫기 버튼] 클릭 이벤트
 
 
-# 3. 버튼
-# 1) [사용자 회원가입]
-# 2) [사용자 로그인]
-# 3) [사용자 패스워드 초기화]
+## 3. 버튼
+### 1) [사용자 회원가입]
+### 2) [사용자 로그인]
+### 3) [사용자 패스워드 초기화]
 
 
-# 4. 기능 및 함수
-# 1) 기능
+## 4. 기능 및 함수
+### 1) 기능
    <1> [사용자 회원가입] 기능
    <2> [사용자 정보저장] 기능
    - [(File System)]을 활용하여, 데이터베이스(DB)를 대체 구현
@@ -87,7 +97,7 @@
    <4> [사용자 정보 초기화] 기능
    <5> [사용자 패스워드 초기화] 기능
    
-# 2) 함수
+### 2) 함수
    <1> [사용자 이름] 유효성 검사 함수
    <2> [사용자 이름] 중복성 확인 함수
    <3> [사용자 패스워드] 유효성 검사 함수
@@ -95,5 +105,5 @@
    <5> [userInfo.dat] 파일 삭제 함수
 
 
-# 5. [App] 실행 시, 화면 이미지
+## 5. [App] 실행 시, 화면 이미지
 <img width="551" alt="사용자 정보 화면" src="https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/7bec9614-f28d-4663-ac2e-1361374e1981">
