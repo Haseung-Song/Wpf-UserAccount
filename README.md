@@ -1,6 +1,4 @@
-# [Side Project] #
-
-# [(File System)] 활용 사용자 계정 생성 및 로그인 #
+# [Side Project]: File System 활용 사용자 계정 생성 및 로그인
 
 ## 1. 사용 언어, UI, 사용 기술
 ### 1) 사용 언어: C#
