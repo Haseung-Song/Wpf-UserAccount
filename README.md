@@ -1,4 +1,4 @@
-# [Side Project]_사이드 프로젝트
+# [Side Project]
 
 ## 사용자 계정 생성 및 로그인
 
