@@ -121,7 +121,7 @@
 
 
 
-## 5. [App] 실행 시, [화면]
+## 5. [App] 실행 시, 초기 화면
 <img width="551" alt="사용자 정보 화면" src="https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/7bec9614-f28d-4663-ac2e-1361374e1981">
 
 
