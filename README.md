@@ -141,27 +141,32 @@
 ### 2) 함수
    <1> [사용자 이름] 유효성 검사 함수
    
-####    * [함수] ValidateUsername(): 사용자 이름 입력 시, 유효성 검사 => 예외 처리
+####    * [함수] ValidateUsername()
+-       사용자 이름 입력 시, 유효성 검사 => 예외 처리
 
    
    <2> [사용자 이름] 중복성 확인 함수
    
-####    * [함수] IsUserDuplicateCheck(): 사용자 이름 입력 시, 중복성 확인 => 중복 제외
+####    * [함수] IsUserDuplicateCheck()
+-      사용자 이름 입력 시, 중복성 확인 => 중복 제외
 
    
    <3> [사용자 패스워드] 유효성 검사 함수
    
-####    * [함수] ValidatePassword(): 사용자 패스워드 입력 시, 유효성 검사 => 예외 처리
+####    * [함수] ValidatePassword()
+-      사용자 패스워드 입력 시, 유효성 검사 => 예외 처리
 
    
    <4> [사용자 패스워드] 불러오기 함수
    
-####    * [함수] GetUsersPassword(UserName, DisplayPassword): 사용자 패스워드 불러오기
+####    * [함수] GetUsersPassword(UserName, DisplayPassword)
+-      사용자 패스워드 불러오기
 
    
    <5> [userInfo.dat] 파일 삭제 함수
    
-####    * [함수] OnProcessExit(object sender, EventArgs e): [사용자 정보파일] 삭제하기
+####    * [함수] OnProcessExit(object sender, EventArgs e)
+-      [사용자 정보파일] 삭제하기
 
 
 
