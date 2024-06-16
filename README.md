@@ -101,47 +101,60 @@
    
     *  [함수] Sign_Up() 구성
     
-   [1] [함수] ValidateUsername(): [사용자 이름] 유효성 검사 함수
+####   [1] [함수] ValidateUsername(): [사용자 이름] 유효성 검사 함수
    
-   [2] [함수] IsUserDuplicateCheck(): [사용자 이름] 중복성 확인 함수
+####   [2] [함수] IsUserDuplicateCheck(): [사용자 이름] 중복성 확인 함수
    
-   [3] [함수] ValidatePassword(): [사용자 패스워드] 유효성 검사 함수
+####   [3] [함수] ValidatePassword(): [사용자 패스워드] 유효성 검사 함수
    
-   [4] [함수] SaveUsersInfo(): [사용자 정보저장] 기능
+####   [4] [함수] SaveUsersInfo(): [사용자 정보저장] 기능
    
-   [5] [함수] ResetUserInfo(): [사용자 패스워드 초기화] 기능
+####   [5] [함수] ResetUserInfo(): [사용자 패스워드 초기화] 기능
    
    <2> [사용자 정보저장] 기능
+   
     * [함수] SaveUsersInfo(): (File System)을 활용하여, 데이터베이스(DB)를 대체 구현
      
    <3> [사용자 로그인] 기능
+   
     * [함수] Log_In()
-    [1] [함수] GetUsersPassword(UserName, DisplayPassword): [사용자 패스워드] 불러오기 함수
-    [2] [함수] SecureStringHelper.ConvertToUnsecureString() 함수: [SecureString] to [UnSecureString] 변환
-    [3] [함수] ResetUserInfo(): [사용자 정보 초기화] 기능
-    [4] [함수] ResetPassword(): [사용자 패스워드 초기화] 기능
+    
+####    [1] [함수] GetUsersPassword(UserName, DisplayPassword): [사용자 패스워드] 불러오기 함수
+
+####    [2] [함수] SecureStringHelper.ConvertToUnsecureString() 함수: [SecureString] to [UnSecureString] 변환
+
+####    [3] [함수] ResetUserInfo(): [사용자 정보 초기화] 기능
+
+####    [4] [함수] ResetPassword(): [사용자 패스워드 초기화] 기능
    
    <4> [사용자 정보 초기화] 기능
+   
     * [함수] ResetUserInfo(): 사용자 정보를 초기화
    
    <5> [사용자 패스워드 초기화] 기능
+   
     * [함수]: ResetPassword(): 사용자 패스워드를 초기화
 
 
 ### 2) 함수
    <1> [사용자 이름] 유효성 검사 함수
+   
     * [함수] ValidateUsername(): 사용자 이름 입력 시, 유효성 검사를 통해 예외 처리
    
    <2> [사용자 이름] 중복성 확인 함수
+   
     * [함수] IsUserDuplicateCheck(): 사용자 이름 입력 시, 중복성 확인을 통해 중복 제외
    
    <3> [사용자 패스워드] 유효성 검사 함수
+   
     * [함수] ValidatePassword(): 사용자 패스워드 입력 시, 유효성 검사를 통해 예외 처
    
    <4> [사용자 패스워드] 불러오기 함수
+   
     * [함수] GetUsersPassword(UserName, DisplayPassword): 사용자 패스워드 불러오기
    
    <5> [userInfo.dat] 파일 삭제 함수
+   
     * [함수] OnProcessExit(object sender, EventArgs e): [사용자 정보파일] 삭제하기
 
 
