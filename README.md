@@ -100,9 +100,13 @@
    <1> [사용자 회원가입] 기능
     *  [함수] Sign_Up() 구성
    [1] [함수] ValidateUsername(): [사용자 이름] 유효성 검사 함수
+   
    [2] [함수] IsUserDuplicateCheck(): [사용자 이름] 중복성 확인 함수
+   
    [3] [함수] ValidatePassword(): [사용자 패스워드] 유효성 검사 함수
+   
    [4] [함수] SaveUsersInfo(): [사용자 정보저장] 기능
+   
    [5] [함수] ResetUserInfo(): [사용자 패스워드 초기화] 기능
    
    <2> [사용자 정보저장] 기능
