@@ -24,6 +24,11 @@ namespace Wpf_UserAccount.ViewModels
         public bool IsPassWordExist { get; set; }
 
         /// <summary>
+        /// Event to Notify If UserInfo is Reset;
+        /// </summary>
+        public event Action ResetInfoFocusAction;
+
+        /// <summary>
         /// [userInfo.dat] 파일 경로
         /// </summary>
         public string FilePath = @"C:\Users\User\source\repos\Wpf-UserAccount\Wpf-UserAccount\Wpf-UserAccount\bin\Debug\userInfo.dat";
@@ -39,7 +44,7 @@ namespace Wpf_UserAccount.ViewModels
         public string UserName { get => (string)this["UserName"]; set => this["UserName"] = value; }
 
         /// <summary>
-        /// [사용자 비밀번호]
+        /// [사용자 패스워드]
         /// </summary>
         public SecureString SecurePassword { get => (SecureString)this["SecurePassword"]; set => this["SecurePassword"] = value; }
 
@@ -49,7 +54,7 @@ namespace Wpf_UserAccount.ViewModels
         public string ErrorMessage { get => (string)this["ErrorMessage"]; set => this["ErrorMessage"] = value; }
 
         /// <summary>
-        /// [사용자 비밀번호 표시]
+        /// [사용자 패스워드 표시]
         /// </summary>
         public string DisplayPassword
         {
@@ -58,12 +63,12 @@ namespace Wpf_UserAccount.ViewModels
         }
 
         /// <summary>
-        /// [사용자 비밀번호 표시 여부]
+        /// [사용자 패스워드 표시 여부]
         /// </summary>
         public bool IsPasswordVisible { get => (bool)this["IsPasswordVisible"]; set => this["IsPasswordVisible"] = value; }
 
         /// <summary>
-        /// [사용자 비밀번호 리셋 여부]
+        /// [사용자 패스워드 리셋 여부]
         /// </summary>
         public bool ClearPasswordFlag { get => (bool)this["ClearPasswordFlag"]; set => this["ClearPasswordFlag"] = value; }
 
@@ -77,7 +82,7 @@ namespace Wpf_UserAccount.ViewModels
         // 2. 사용자 로그인
         public ICommand Log_InCommand { get; }
 
-        // 3. 사용자 비밀번호 초기화
+        // 3. 사용자 패스워드 초기화
         public ICommand ResetPasswordCommand { get; }
 
         #endregion
@@ -92,7 +97,6 @@ namespace Wpf_UserAccount.ViewModels
             Sign_UpCommand = new RelayCommand(Sign_Up);
             Log_InCommand = new RelayCommand(Log_In);
             ResetPasswordCommand = new RelayCommand(ResetPassword);
-
             // Add Event Handler for Process Exit to Delete the [userInfo.dat] File.
             // 반드시, [창닫기 버튼] 클릭 이벤트 발생 시에, [DB 파일] 삭제가 가능함.
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
@@ -418,10 +422,11 @@ namespace Wpf_UserAccount.ViewModels
                 ClearPasswordFlag = true;
             }
             ErrorMessage = string.Empty;
+            ResetInfoFocusAction?.Invoke();
         }
 
         /// <summary>
-        /// 5. [사용자 비밀번호 초기화] 기능
+        /// 5. [사용자 패스워드 초기화] 기능
         /// </summary>
         private void ResetPassword()
         {

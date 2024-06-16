@@ -20,10 +20,20 @@ namespace Wpf_UserAccount.Views
         public LoginView()
         {
             InitializeComponent();
-            DataContext = new LoginVM();
+            var viewModel = new LoginVM();
+            DataContext = viewModel;
             originalWidth = Width;
             originalHeight = Height;
             SizeChanged += Window_SizeChanged;
+            viewModel.ResetInfoFocusAction += OnResetInfoFocusAction;
+        }
+
+        /// <summary>
+        /// [사용자 정보] 초기화 후, [txtUser] to Focus() 이벤트 발생
+        /// </summary>
+        private void OnResetInfoFocusAction()
+        {
+            txtUser.Focus();
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace Wpf_UserAccount.Views
         }
 
         /// <summary>
-        /// [최소화 버튼] 이벤트 클릭
+        /// [최소화 버튼] 클릭 이벤트
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -74,7 +84,7 @@ namespace Wpf_UserAccount.Views
         }
 
         /// <summary>
-        /// [최대화 버튼] 이벤트 클릭
+        /// [최대화 버튼] 클릭 이벤트
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,11 +105,11 @@ namespace Wpf_UserAccount.Views
         }
 
         /// <summary>
-        /// [창닫기 버튼] 이벤트 클릭
+        /// [창닫기 버튼] 클릭 이벤트
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void BtnClose_Click(object sender, RoutedEventArgs e)
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
