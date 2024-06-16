@@ -74,7 +74,7 @@
      
    <2> LoginView.xaml.cs 파일
    - [로그인 화면]
-   - [사용자 정보] 초기화 후, [txtUser] 입력 칸 to Focus() 이벤트 발생
+   - [사용자 정보] 초기화 후, [txtUser] 입력 칸 Focus() 이벤트 발생
    - [Window 크기 변환] 이벤트 발생
    - [Mouse 좌클릭] 이벤트 발생
    - [최소화 버튼] 클릭 이벤트
