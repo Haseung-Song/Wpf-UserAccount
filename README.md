@@ -74,10 +74,12 @@
      
    <2> LoginView.xaml.cs 파일
    - [로그인 화면]
+   - [사용자 정보] 초기화 후, [txtUser] to Focus() 이벤트 발생.
    - [Window 크기 변환] 이벤트 발생
    - [Mouse 좌클릭] 이벤트 발생
    - [최소화 버튼] 클릭 이벤트
    - [최대화 버튼] 클릭 이벤트
+     * 최대화 버튼 클릭 시, 해상도에 맞춰 확대 및 원본 축소 가능
    - [창닫기 버튼] 클릭 이벤트
 
 
@@ -123,6 +125,5 @@
 
 ## 5. [App] 실행 시, 초기 화면
 <img width="551" alt="사용자 정보 화면" src="https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/7bec9614-f28d-4663-ac2e-1361374e1981">
-
 
 
