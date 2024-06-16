@@ -127,3 +127,8 @@
 <img width="551" alt="사용자 정보 화면" src="https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/7bec9614-f28d-4663-ac2e-1361374e1981">
 
 
+
+## 6. [App] 실행 시, 기능 녹화
+https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/af83086d-db28-436a-9d08-5a666a0b2d71
+
+
