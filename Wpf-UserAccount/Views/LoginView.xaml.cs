@@ -10,9 +10,12 @@ namespace Wpf_UserAccount.Views
     /// </summary>
     public partial class LoginView : Window
     {
+        public LoginContentView LoginContentView { get; } = new LoginContentView();
+
+        readonly ScaleTransform scale = new ScaleTransform();
+
         private bool isDoubleClicking = true;
         private readonly double originalWidth, originalHeight = 0;
-        readonly ScaleTransform scale = new ScaleTransform();
 
         /// <summary>
         /// [로그인 화면]
@@ -26,14 +29,26 @@ namespace Wpf_UserAccount.Views
             originalHeight = Height;
             SizeChanged += Window_SizeChanged;
             viewModel.ResetInfoFocusAction += OnResetInfoFocusAction;
+            viewModel.AfterUserLoginAction += NavigateToKakaoMapView;
+            LoginContentView.DataContext = viewModel;
+            MainFrame.Navigate(LoginContentView);
         }
 
         /// <summary>
         /// [사용자 정보] 초기화 후, [txtUser] to Focus() 이벤트 발생
         /// </summary>
-        private void OnResetInfoFocusAction()
+        public void OnResetInfoFocusAction()
         {
-            txtUser.Focus();
+            LoginContentView?.txtUser.Focus();
+        }
+
+        /// <summary>
+        /// [사용자 로그인] 이후 [KakaoMap] 브라우저 향해 이벤트 발생
+        /// </summary>
+        public void NavigateToKakaoMapView()
+        {
+            MainFrame.Navigate(new KakaoMapView());
+            txtblkUserInfo.Text = "카카오 맵 화면";
         }
 
         /// <summary>
@@ -111,7 +126,7 @@ namespace Wpf_UserAccount.Views
         /// <param name="e"></param>
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
     }

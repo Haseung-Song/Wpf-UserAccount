@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="Wpf_UserAccount.Views.LoginContentView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:customcontrols="clr-namespace:Wpf_UserAccount.CustomControls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="550" d:DesignWidth="750">
+    <StackPanel Width="250"
+                Orientation="Vertical"
+                Margin="0,10,0,0">
+        <Image Source="/Images/SOLETOP_03.png"
+               Height="120" Width="200"/>
+
+        <TextBlock Text="Learning to code is useful no matter what your career ambitions are."
+                   Foreground="LightGray"
+                   FontSize="15"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   TextWrapping="Wrap"
+                   TextAlignment="Center"
+                   Margin="0,10,0,0"/>
+
+        <TextBlock Text="Username"
+                   Foreground="DarkGray"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   Margin="0,35,0,0"/>
+
+        <TextBox x:Name="txtUser"
+                 Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 FontSize="13"
+                 FontWeight="Medium"
+                 FontFamily="Montserrat"
+                 Foreground="White"
+                 CaretBrush="LightGray"
+                 BorderBrush="DarkGray"
+                 BorderThickness="0,0,0,1"
+                 Height="28"
+                 VerticalContentAlignment="Center"
+                 Margin="0,5,0,0"
+                 Padding="20,0,0,0">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/Images/user-icon.png"
+                            Stretch="None"
+                            AlignmentX="Left"/>
+            </TextBox.Background>
+            <TextBox.InputBindings>
+                <KeyBinding Gesture="Enter" 
+                            Command="{Binding Sign_UpCommand, UpdateSourceTrigger=PropertyChanged}"/>
+            </TextBox.InputBindings>
+        </TextBox>
+
+        <TextBlock Text="Password"
+                   Foreground="DarkGray"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   Margin="0,20,0,0"/>
+
+        <customcontrols:BindablePasswordBox SecurePassword="{Binding SecurePassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                            Password="{Binding DisplayPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                            IsPasswordVisible="{Binding IsPasswordVisible, Mode=TwoWay}"
+                                            IsClear="{Binding ClearPasswordFlag, Mode=TwoWay}"
+                                            Margin="0,5,0,0">
+            <customcontrols:BindablePasswordBox.InputBindings>
+                <KeyBinding Gesture="Enter"
+                            Command="{Binding Sign_UpCommand, UpdateSourceTrigger=PropertyChanged}"/>
+            </customcontrols:BindablePasswordBox.InputBindings>
+        </customcontrols:BindablePasswordBox>
+
+        <TextBlock Text="{Binding DisplayPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                   FontSize="14"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   Foreground="OrangeRed"
+                   Margin="0,5,0,0"
+                   Padding="40,10,0,0"
+                   Height="28"
+                   Visibility="{Binding IsPasswordVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock.Background>
+                <ImageBrush ImageSource="/Images/displayPw-icon.png"                              
+                            Stretch="Uniform"
+                            AlignmentX="Left"/>
+            </TextBlock.Background>
+            <TextBlock.InputBindings>
+                <KeyBinding Gesture="Enter"
+                            Command="{Binding Sign_UpCommand, UpdateSourceTrigger=PropertyChanged}"/>
+            </TextBlock.InputBindings>
+        </TextBlock>
+
+        <CheckBox  Content="Show Password"
+                   IsChecked="{Binding IsPasswordVisible, Mode=TwoWay}"
+                   Foreground="White"
+                   Margin="0,15,0,0"/>
+
+        <TextBlock Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                   Foreground="#D7596D"
+                   FontSize="13"
+                   FontWeight="Medium"
+                   FontFamily="Montserrat"
+                   Margin="0,5,0,0"/>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+            <Button x:Name="btnSignUp"
+                    Command="{Binding Sign_UpCommand, UpdateSourceTrigger=PropertyChanged}"
+                    BorderThickness="0"
+                    Content="SIGN UP"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="1"
+                    Margin="0,10,0,0">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Purple"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="115"
+                                Height="40"
+                                Margin="0,0,10,0"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.InputBindings>
+                    <KeyBinding Gesture="Enter" 
+                                Command="{Binding Sign_UpCommand, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button.InputBindings>
+            </Button>
+
+            <Button x:Name="btnLogIn"
+                    Command="{Binding Log_InCommand, UpdateSourceTrigger=PropertyChanged}"
+                    BorderThickness="0"
+                    Content="LOG IN"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="1"
+                    Margin="0,10,0,0">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#462AD8"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#28AEED"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="115"
+                                Height="40"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.InputBindings>
+                    <KeyBinding Gesture="Enter" 
+                                Command="{Binding Log_InCommand, UpdateSourceTrigger=PropertyChanged}"/>
+                </Button.InputBindings>
+            </Button>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,15,0,0">
+            <TextBlock Text="Reset Password? "
+                       Foreground="DarkGray"
+                       FontSize="14"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"/>
+            <TextBlock Text="Reset"
+                       Foreground="White"
+                       FontSize="14"
+                       FontWeight="Medium"
+                       FontFamily="Montserrat"
+                       Cursor="Hand"
+                       Margin="10,0,0,0">
+                <TextBlock.InputBindings>
+                    <MouseBinding Gesture="LeftClick"
+                                  Command="{Binding ResetPasswordCommand}"/>
+                </TextBlock.InputBindings>
+            </TextBlock>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

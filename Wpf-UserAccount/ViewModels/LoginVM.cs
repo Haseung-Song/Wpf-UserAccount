@@ -24,6 +24,11 @@ namespace Wpf_UserAccount.ViewModels
         public bool IsPassWordExist { get; set; }
 
         /// <summary>
+        /// Event to Notify After the User Login;
+        /// </summary>
+        public event Action AfterUserLoginAction;
+
+        /// <summary>
         /// Event to Notify If UserInfo is Reset;
         /// </summary>
         public event Action ResetInfoFocusAction;
@@ -31,7 +36,7 @@ namespace Wpf_UserAccount.ViewModels
         /// <summary>
         /// [userInfo.dat] 파일 경로
         /// </summary>
-        public string FilePath = @"C:\Users\User\source\repos\Wpf-UserAccount\Wpf-UserAccount\Wpf-UserAccount\bin\Debug\userInfo.dat";
+        public string FilePath = @"C:\Users\user\source\repos\Wpf-UserAccount (2)\Wpf-UserAccount\Wpf-UserAccount\Wpf-UserAccount\bin\Debug\userInfo.dat";
 
         /// <summary>
         /// [UserInfoCollection] : 회원가입을 위한 [UserName] + [SecurePassword] (동적 데이터 컬렉션) 저장
@@ -97,8 +102,7 @@ namespace Wpf_UserAccount.ViewModels
             Sign_UpCommand = new RelayCommand(Sign_Up);
             Log_InCommand = new RelayCommand(Log_In);
             ResetPasswordCommand = new RelayCommand(ResetPassword);
-            // Add Event Handler for Process Exit to Delete the [userInfo.dat] File.
-            // 반드시, [창닫기 버튼] 클릭 이벤트 발생 시에, [DB 파일] 삭제가 가능함.
+            // Add event handler for process exit to delete file.
             AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
         }
 
@@ -118,6 +122,7 @@ namespace Wpf_UserAccount.ViewModels
                 if (IsUserDuplicateCheck())
                 {
                     _ = MessageBox.Show("해당 Username이 중복입니다. 다른 Username을 입력하세요.", "Username 재입력 요청", MessageBoxButton.OK, MessageBoxImage.Error);
+                    ResetUserInfo();
                     return;
                 }
 
@@ -128,6 +133,7 @@ namespace Wpf_UserAccount.ViewModels
                     SaveUsersInfo();
                     _ = MessageBox.Show("Password가 유효합니다. 회원가입에 성공하였습니다.", "사용자 회원가입 성공", MessageBoxButton.OK, MessageBoxImage.Information);
                     ResetUserInfo();
+                    return;
                 }
 
             }
@@ -276,7 +282,7 @@ namespace Wpf_UserAccount.ViewModels
                 }
 
             }
-
+            return;
         }
 
         /// <summary>
@@ -310,7 +316,7 @@ namespace Wpf_UserAccount.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    ErrorMessage = $"Failed to Save: {ex.Message}";
+                    ErrorMessage = $"Fail to Save: {ex.Message}";
                 }
 
             }
@@ -339,11 +345,14 @@ namespace Wpf_UserAccount.ViewModels
                         {
                             _ = MessageBox.Show("Password가 맞았습니다. 로그인에 성공하였습니다.", "사용자 로그인 성공", MessageBoxButton.OK, MessageBoxImage.Information);
                             ResetUserInfo();
+                            AfterUserLoginAction?.Invoke();
+                            return;
                         }
                         else
                         {
                             _ = MessageBox.Show("Password가 틀렸습니다. 로그인에 실패하였습니다.", "사용자 로그인 실패", MessageBoxButton.OK, MessageBoxImage.Information);
                             ResetPassword();
+                            return;
                         }
 
                     }
@@ -363,44 +372,52 @@ namespace Wpf_UserAccount.ViewModels
         {
             try
             {
-                using (StreamReader streamReader = new StreamReader(FilePath))
+                if (File.Exists(FilePath))
                 {
-                    string line = string.Empty;
-                    while ((line = streamReader.ReadLine()) != null)
+                    using (StreamReader streamReader = new StreamReader(FilePath))
                     {
-                        string fileUserName = line;
-                        string filePassword = streamReader.ReadLine();
-                        if (fileUserName == userName)
+                        string line = string.Empty;
+                        while ((line = streamReader.ReadLine()) != null)
                         {
-                            Console.WriteLine($"올바른 UserName입니다.");
-                            displayPassword = filePassword;
-                            IsPassWordExist = true;
-                            break;
-                        }
+                            string fileUserName = line;
+                            string filePassword = streamReader.ReadLine();
+                            if (fileUserName == userName)
+                            {
+                                Console.WriteLine($"Right Username: 올바른 사용자 이름입니다.");
+                                displayPassword = filePassword;
+                                IsPassWordExist = true;
+                                break;
+                            }
 
+                        }
+                        if (line != userName)
+                        {
+                            _ = MessageBox.Show("UserName을 다시 확인하세요.", "UserName 미등록", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        streamReader?.Close();
+                        streamReader?.Dispose();
                     }
-                    if (line != userName)
-                    {
-                        _ = MessageBox.Show("UserName을 다시 확인하세요.", "UserName 미등록", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    streamReader?.Close();
-                    streamReader?.Dispose();
+
+                }
+                else
+                {
+                    _ = MessageBox.Show("파일이 먼저 생성되어야 합니다.", "[userInfo.dat] 파일 미존재", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
             catch (Exception ex)
             {
-                ErrorMessage = $"Failed to Read: {ex.Message}";
+                ErrorMessage = $"Fail to Read: {ex.Message}";
             }
             finally
             {
-                if (displayPassword == null)
+                if (IsPassWordExist == false)
                 {
-                    Console.WriteLine($"Succeed to Read: [사용자 패스워드] 불러오기 실패");
-                }
-                else
-                {
-                    Console.WriteLine($"Succeed to Read: [사용자 패스워드] 불러오기 성공");
+                    if (displayPassword == null || displayPassword == string.Empty)
+                    {
+                        Console.WriteLine($"Reading Failure: [사용자 패스워드] 불러오기 실패");
+                    }
+
                 }
 
             }
@@ -417,7 +434,6 @@ namespace Wpf_UserAccount.ViewModels
             {
                 UserName = string.Empty;
                 SecurePassword?.Clear();
-                SecurePassword?.Dispose();
                 DisplayPassword = string.Empty;
                 ClearPasswordFlag = true;
             }
@@ -434,7 +450,6 @@ namespace Wpf_UserAccount.ViewModels
             if (DisplayPassword != null)
             {
                 SecurePassword?.Clear();
-                SecurePassword?.Dispose();
                 DisplayPassword = string.Empty;
                 ClearPasswordFlag = true;
             }
@@ -459,7 +474,7 @@ namespace Wpf_UserAccount.ViewModels
             }
             catch (Exception ex)
             {
-                ErrorMessage = $"Failed to Delete: {ex.Message}";
+                ErrorMessage = $"Fail to Delete: {ex.Message}";
             }
 
         }
