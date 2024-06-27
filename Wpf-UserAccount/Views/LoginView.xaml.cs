@@ -12,7 +12,7 @@ namespace Wpf_UserAccount.Views
     {
         public LoginContentView LoginContentView { get; } = new LoginContentView();
 
-        readonly ScaleTransform scale = new ScaleTransform();
+        private readonly ScaleTransform scale = new ScaleTransform();
 
         private bool isDoubleClicking = true;
         private readonly double originalWidth, originalHeight = 0;
@@ -23,7 +23,7 @@ namespace Wpf_UserAccount.Views
         public LoginView()
         {
             InitializeComponent();
-            var viewModel = new LoginVM();
+            LoginVM viewModel = new LoginVM();
             DataContext = viewModel;
             originalWidth = Width;
             originalHeight = Height;

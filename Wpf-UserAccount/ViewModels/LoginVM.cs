@@ -401,7 +401,7 @@ namespace Wpf_UserAccount.ViewModels
                 }
                 else
                 {
-                    _ = MessageBox.Show("파일이 먼저 생성되어야 합니다.", "[userInfo.dat] 파일 미존재", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _ = MessageBox.Show("파일이 먼저 생성되어야 합니다.", "[userInfo.dat] 파일 미생성", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
             }
