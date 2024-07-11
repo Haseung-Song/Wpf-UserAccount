@@ -80,7 +80,7 @@
    - [로그인 배경 화면]
    - [DataContext 연결] (LoginVM)
    - [사용자 정보] 초기화 후, [txtUser] to Focus() 이벤트 발생
-   - [사용자 로그인] 후, 카카오맵 브라우저 향해 이벤트 발생
+   - [사용자 로그인] 후, 카카오맵 브라우저 to Navigate() 이벤트 발생
    - [Window 크기 변환] 이벤트 발생
    - [New 너비 및 높이] 메서드 함수
    - [Mouse 좌클릭] 이벤트 발생
@@ -159,7 +159,6 @@
    <4> [사용자 로그인 이후] 기능
 
 #####   [1] [파일] kakaomap.html: [사용자 로그인] 성공 후, [카카오 맵] 내 현재 위치 또는 사는 장소 도시 기능
--       [kakaomap.html] WEB 파일(Javascript + html) 추가 완료
 -       [kakaomap.html] WEB 파일(Javascript + html) 추가 완료
 
    
