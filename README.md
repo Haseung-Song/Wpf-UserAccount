@@ -68,7 +68,7 @@
    - [Main] 기능 및 함수 구현
    - [Action] 사용, 특정 이벤트(사용자 정보 초기화, 사용자 로그인 후) 처리
    - [userinfo.dat] 파일 생성을 위한 특정 경로 설정
-   - [UserInfoCollection] => 회원가입 목적 [UserName] + [SecurePassword] (동적 데이터 컬렉션) 저장
+   - [UserInfoCollection] => 회원가입 목적 [UserName] + [SecurePassword](동적 데이터 컬렉션) 저장
 
    
 ### 6) [Views]_Folder
