@@ -205,19 +205,37 @@
 
 
 
-## 5. [로그인 이전] 초기 화면
+## 5-1. [로그인 이전] 초기 화면
 ![사용자 정보 화면(240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/8068e46f-1a79-4a71-8eaf-234dfbad40b7)
 
 
 
 
-## 5. [로그인 이후] 초기 화면
+## 5-2. [로그인 성공] 캡처 화면
+![로그인 성공 화면 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/53677434-0327-404e-86e4-4f539c5d9d16)
+
+
+
+
+## 6-1. [로그인 이후] 초기 화면
 ![카카오 맵 화면(240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/f260e26c-bcf5-4460-932f-fd3b594e50d4)
 
 
 
 
-## 6. [App] 실행 시, 기능 녹화
+## 6-2. [사용자 위치] 설정 화면 1 (지도)
+![사용자 위치 화면 1 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/782cf629-728c-4392-8ce8-14f3689d8195)
+
+
+
+
+## 6-3. [사용자 위치] 설정 화면 2 (스카이뷰)
+![사용자 위치 화면 2 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/66bc8354-9a27-498b-b404-a0e27fed9296)
+
+
+
+
+## 7. [App] 실행 후 기능 녹화
 https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/af83086d-db28-436a-9d08-5a666a0b2d71
 
 
