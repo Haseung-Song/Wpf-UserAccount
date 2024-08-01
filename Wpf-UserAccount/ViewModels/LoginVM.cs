@@ -36,7 +36,7 @@ namespace Wpf_UserAccount.ViewModels
         /// <summary>
         /// [userInfo.dat] 파일 경로
         /// </summary>
-        public string FilePath = @"C:\Users\user\source\repos\Wpf-UserAccount (2)\Wpf-UserAccount\Wpf-UserAccount\Wpf-UserAccount\bin\Debug\userInfo.dat";
+        public string FilePath = @"C:\Wpf-UserAccount\userInfo.dat"; // 파일 경로는 [C:\] 드라이브에 생성!
 
         /// <summary>
         /// [UserInfoCollection] : 회원가입을 위한 [UserName] + [SecurePassword] (동적 데이터 컬렉션) 저장
@@ -103,7 +103,7 @@ namespace Wpf_UserAccount.ViewModels
             Log_InCommand = new RelayCommand(Log_In);
             ResetPasswordCommand = new RelayCommand(ResetPassword);
             // Add event handler for process exit to delete file.
-            AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
+            //AppDomain.CurrentDomain.ProcessExit += OnProcessExit;
         }
 
         #endregion
@@ -301,18 +301,19 @@ namespace Wpf_UserAccount.ViewModels
                 try
                 {
                     // [userInfo.dat] 파일 생성!
-                    // [기본 경로]는 [bin] 폴더에 생성!
-                    FileStream fileStream = new FileStream(FilePath, FileMode.Create, FileAccess.Write);
+                    using (FileStream fileStream = new FileStream(FilePath, FileMode.Create, FileAccess.Write))
 
                     // [userInfo.dat] 파일 쓰기!
-                    StreamWriter streamWriter = new StreamWriter(fileStream);
-                    foreach (LoginVM userInfo in UserInfoCollection)
+                    using (StreamWriter streamWriter = new StreamWriter(fileStream))
                     {
-                        streamWriter?.WriteLine(userInfo.UserName);
-                        streamWriter?.WriteLine(userInfo.DisplayPassword);
+                        foreach (LoginVM userInfo in UserInfoCollection)
+                        {
+                            streamWriter.WriteLine(userInfo.UserName);
+                            streamWriter.WriteLine(userInfo.DisplayPassword);
+                        }
+
                     }
-                    streamWriter?.Close();
-                    streamWriter?.Dispose();
+
                 }
                 catch (Exception ex)
                 {
@@ -394,8 +395,7 @@ namespace Wpf_UserAccount.ViewModels
                         {
                             _ = MessageBox.Show("UserName을 다시 확인하세요.", "UserName 미등록", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
-                        streamReader?.Close();
-                        streamReader?.Dispose();
+
                     }
 
                 }

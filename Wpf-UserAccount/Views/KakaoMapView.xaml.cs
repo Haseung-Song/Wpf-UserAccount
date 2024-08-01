@@ -17,7 +17,7 @@ namespace Wpf_UserAccount.Views
         {
             try
             {
-                await KakaoMapWebView.EnsureCoreWebView2Async(null, null);
+                await KakaoMapWebView.EnsureCoreWebView2Async(null);
                 KakaoMapWebView.CoreWebView2.NavigationCompleted += CoreWebView2_NavigationCompleted;
                 KakaoMapWebView.CoreWebView2.PermissionRequested += CoreWebView2_PermissionRequested;
 
@@ -36,6 +36,9 @@ namespace Wpf_UserAccount.Views
         private void CoreWebView2_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
         {
             Console.WriteLine("Navigation completed.");
+
+            // 지도 로드 후 현재 위치 요청
+            KakaoMapWebView.CoreWebView2.ExecuteScriptAsync("requestCurrentLocation();");
         }
 
         // 이 이벤트는 [Geolocation] 요청의 [Permission]을 처리합니다.
