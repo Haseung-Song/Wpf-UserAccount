@@ -26,7 +26,7 @@
                    FontSize="13"
                    FontWeight="Medium"
                    FontFamily="Montserrat"
-                   Margin="0,30,0,0"/>
+                   Margin="0,25,0,0"/>
 
         <TextBox x:Name="txtUser"
                  Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
