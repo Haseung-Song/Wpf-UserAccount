@@ -301,7 +301,7 @@ namespace Wpf_UserAccount.ViewModels
                 try
                 {
                     // [userInfo.dat] 파일 생성!
-                    using (FileStream fileStream = new FileStream(FilePath, FileMode.Truncate, FileAccess.Write))
+                    using (FileStream fileStream = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Write))
 
                     // [userInfo.dat] 파일 쓰기!
                     using (StreamWriter streamWriter = new StreamWriter(fileStream))
