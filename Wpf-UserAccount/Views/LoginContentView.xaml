@@ -9,7 +9,7 @@
     <StackPanel Width="250"
                 Orientation="Vertical"
                 Margin="0,5,0,0">
-        <Image Source="O:\source\repos\Wpf-UserAccount (2)\Wpf-UserAccount\Wpf-UserAccount\Wpf-UserAccount\Images\kakao-image.jpg"
+        <Image Source="O:\source\repos\Wpf-UserAccount\Wpf-UserAccount\Images\kakao-image.jpg"
                Height="150" Width="250"/>
 
         <TextBlock Text="Learning to code is useful no matter what your career ambitions are."
