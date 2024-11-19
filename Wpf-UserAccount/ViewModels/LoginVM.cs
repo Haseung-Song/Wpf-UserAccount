@@ -1,9 +1,10 @@
-﻿using Soletop.DataModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
@@ -13,15 +14,26 @@ using Wpf_UserAccount.Converters;
 
 namespace Wpf_UserAccount.ViewModels
 {
-    public class LoginVM : PropertyModel
+    public class LoginVM : INotifyPropertyChanged
     {
         #region [프로퍼티]
 
-        // [IsUserNameExist]
+        private ObservableCollection<LoginVM> _userInfoCollection;
+        private string _userName;
+        private SecureString _securePassword;
+        private string _errorMessage;
+        private string _displayPassword;
+        private bool _isPasswordVisible;
+        private bool _clearPasswordFlag;
+
         public bool IsUserNameExist { get; set; }
 
-        // [IsPassWordExist]
         public bool IsPassWordExist { get; set; }
+
+        /// <summary>
+        /// [userInfo.dat] 파일 경로
+        /// </summary>
+        public string FilePath = @"C:\Wpf-UserAccount\userInfo.dat"; // 파일 경로는 [C:\] 드라이브에 생성!
 
         /// <summary>
         /// Event to Notify After the User Login;
@@ -33,49 +45,142 @@ namespace Wpf_UserAccount.ViewModels
         /// </summary>
         public event Action ResetInfoFocusAction;
 
-        /// <summary>
-        /// [userInfo.dat] 파일 경로
-        /// </summary>
-        public string FilePath = @"C:\Wpf-UserAccount\userInfo.dat"; // 파일 경로는 [C:\] 드라이브에 생성!
+        #endregion
+
+        #region [OnPropertyChanged]
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// [UserInfoCollection] : 회원가입을 위한 [UserName] + [SecurePassword] (동적 데이터 컬렉션) 저장
         /// </summary>
-        public ObservableCollection<LoginVM> UserInfoCollection { get => (ObservableCollection<LoginVM>)this["UserInfoCollection"]; set => this["UserInfoCollection"] = value; }
+        public ObservableCollection<LoginVM> UserInfoCollection
+        {
+            get => _userInfoCollection;
+            set
+            {
+                if (_userInfoCollection != value)
+                {
+                    _userInfoCollection = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
 
         /// <summary>
         /// [사용자 이름]
         /// </summary>
-        public string UserName { get => (string)this["UserName"]; set => this["UserName"] = value; }
+        public string UserName
+        {
+            get => _userName;
+            set
+            {
+                if (_userName != value)
+                {
+                    _userName = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
 
         /// <summary>
         /// [사용자 패스워드]
         /// </summary>
-        public SecureString SecurePassword { get => (SecureString)this["SecurePassword"]; set => this["SecurePassword"] = value; }
+        public SecureString SecurePassword
+        {
+            get => _securePassword;
+            set
+            {
+                if (_securePassword != value)
+                {
+                    _securePassword = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
 
         /// <summary>
         /// [에러 메시지]
         /// </summary>
-        public string ErrorMessage { get => (string)this["ErrorMessage"]; set => this["ErrorMessage"] = value; }
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set
+            {
+                if (_errorMessage != value)
+                {
+                    _errorMessage = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
 
         /// <summary>
         /// [사용자 패스워드 표시]
         /// </summary>
         public string DisplayPassword
         {
-            get => IsPasswordVisible ? SecureStringHelper.ConvertToUnsecureString(SecurePassword) : (string)this["DisplayPassword"];
-            set => this["DisplayPassword"] = value;
+            get => IsPasswordVisible ? SecureStringHelper.ConvertToUnsecureString(SecurePassword) : _displayPassword;
+            set
+            {
+                if (_displayPassword != value)
+                {
+                    _displayPassword = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
         }
 
         /// <summary>
         /// [사용자 패스워드 표시 여부]
         /// </summary>
-        public bool IsPasswordVisible { get => (bool)this["IsPasswordVisible"]; set => this["IsPasswordVisible"] = value; }
+        public bool IsPasswordVisible
+        {
+            get => _isPasswordVisible;
+            set
+            {
+                if (_isPasswordVisible != value)
+                {
+                    _isPasswordVisible = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
 
         /// <summary>
         /// [사용자 패스워드 리셋 여부]
         /// </summary>
-        public bool ClearPasswordFlag { get => (bool)this["ClearPasswordFlag"]; set => this["ClearPasswordFlag"] = value; }
+        public bool ClearPasswordFlag
+        {
+            get => _clearPasswordFlag;
+            set
+            {
+                if (_clearPasswordFlag != value)
+                {
+                    _clearPasswordFlag = value;
+                    OnPropertyChanged();
+                }
+
+            }
+
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         #endregion
 
