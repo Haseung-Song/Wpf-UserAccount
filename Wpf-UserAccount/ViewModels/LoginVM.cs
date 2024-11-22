@@ -26,14 +26,25 @@ namespace Wpf_UserAccount.ViewModels
         private bool _isPasswordVisible;
         private bool _clearPasswordFlag;
 
+        /// <summary>
+        /// [IsUserNameExist]
+        /// </summary>
         public bool IsUserNameExist { get; set; }
 
+        /// <summary>
+        /// [IsPassWordExist]
+        /// </summary>
         public bool IsPassWordExist { get; set; }
 
         /// <summary>
-        /// [userInfo.dat] 파일 경로
+        /// [LoginDbDirectory]: 디렉토리 경로
         /// </summary>
-        public readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "userInfo.dat"); // 파일 경로는 [C:\] 드라이브에 생성!
+        public readonly string LoginDbDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LoginDB"); // 파일 경로는 [C:\] 드라이브에 생성!
+
+        /// <summary>
+        /// [userInfo.dat]: DB 파일 이름
+        /// </summary>
+        public readonly string DBFileName = "userInfo.dat";
 
         /// <summary>
         /// Event to Notify After the User Login;
@@ -221,7 +232,6 @@ namespace Wpf_UserAccount.ViewModels
         private void Sign_Up()
         {
             ValidateUsername();
-
             if (IsUserNameExist)
             {
                 if (IsUserDuplicateCheck())
@@ -230,9 +240,7 @@ namespace Wpf_UserAccount.ViewModels
                     ResetUserInfo();
                     return;
                 }
-
                 ValidatePassword();
-
                 if (IsPassWordExist)
                 {
                     SaveUsersInfo();
@@ -248,7 +256,6 @@ namespace Wpf_UserAccount.ViewModels
         /// <summary>
         /// [사용자 이름] 유효성 검사 함수
         /// </summary>
-        /// <returns></returns>
         private void ValidateUsername()
         {
             IsUserNameExist = true;
@@ -294,13 +301,13 @@ namespace Wpf_UserAccount.ViewModels
                 }
 
             }
-
+            return;
         }
 
         /// <summary>
         /// [사용자 이름] 중복성 확인 함수
         /// </summary>
-        /// <returns></returns>
+        /// <returns>true, false</returns>
         private bool IsUserDuplicateCheck()
         {
             // 재시작 시, [UserInfoCollection]이 초기화 되므로 주의.
@@ -319,7 +326,6 @@ namespace Wpf_UserAccount.ViewModels
         /// <summary>
         /// [사용자 패스워드] 유효성 검사 함수
         /// </summary>
-        /// <returns></returns>
         private void ValidatePassword()
         {
             if (IsUserNameExist)
@@ -391,6 +397,19 @@ namespace Wpf_UserAccount.ViewModels
         }
 
         /// <summary>
+        /// [GetDBFilePath()] 메서드
+        /// </summary>
+        /// <returns>전체 파일 경로</returns>
+        private string GetDBFilePath()
+        {
+            if (!Directory.Exists(LoginDbDirectory))
+            {
+                _ = Directory.CreateDirectory(LoginDbDirectory); // "LoginDB" 폴더 생성
+            }
+            return Path.Combine(LoginDbDirectory, DBFileName);
+        }
+
+        /// <summary>
         /// 2. [사용자 정보저장] 기능
         /// </summary>
         private void SaveUsersInfo()
@@ -406,7 +425,7 @@ namespace Wpf_UserAccount.ViewModels
                 try
                 {
                     // [userInfo.dat] 파일 생성!
-                    using (FileStream fileStream = new FileStream(FilePath, FileMode.OpenOrCreate, FileAccess.Write))
+                    using (FileStream fileStream = new FileStream(GetDBFilePath(), FileMode.OpenOrCreate, FileAccess.Write))
 
                     // [userInfo.dat] 파일 쓰기!
                     using (StreamWriter streamWriter = new StreamWriter(fileStream))
@@ -426,7 +445,7 @@ namespace Wpf_UserAccount.ViewModels
                 }
 
             }
-
+            return;
         }
 
         /// <summary>
@@ -444,6 +463,7 @@ namespace Wpf_UserAccount.ViewModels
                     {
                         IsPassWordExist = false;
                         _ = MessageBox.Show("해당 Password를 입력하세요.", "UserName 활성화", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
                     }
                     else
                     {
@@ -473,14 +493,14 @@ namespace Wpf_UserAccount.ViewModels
         /// [사용자 패스워드] 불러오기 함수
         /// </summary>
         /// <param name="displayPassword"></param>
-        /// <returns></returns>
+        /// <returns>displayPassword</returns>
         private string GetUsersPassword(string userName, string displayPassword)
         {
             try
             {
-                if (File.Exists(FilePath))
+                if (File.Exists(GetDBFilePath()))
                 {
-                    using (StreamReader streamReader = new StreamReader(FilePath))
+                    using (StreamReader streamReader = new StreamReader(GetDBFilePath()))
                     {
                         string line = string.Empty;
                         while ((line = streamReader.ReadLine()) != null)
@@ -570,9 +590,9 @@ namespace Wpf_UserAccount.ViewModels
         {
             try
             {
-                if (File.Exists(FilePath))
+                if (File.Exists(GetDBFilePath()))
                 {
-                    File.Delete(FilePath);
+                    File.Delete(GetDBFilePath());
                     Console.WriteLine($"Succeed to Delete: [userInfo.dat] 파일을 성공적으로 삭제했습니다.");
                 }
 
