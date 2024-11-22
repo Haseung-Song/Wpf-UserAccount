@@ -33,7 +33,7 @@ namespace Wpf_UserAccount.ViewModels
         /// <summary>
         /// [userInfo.dat] 파일 경로
         /// </summary>
-        public string FilePath = @"C:\Wpf-UserAccount\userInfo.dat"; // 파일 경로는 [C:\] 드라이브에 생성!
+        public readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "userInfo.dat"); // 파일 경로는 [C:\] 드라이브에 생성!
 
         /// <summary>
         /// Event to Notify After the User Login;
