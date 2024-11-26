@@ -31,7 +31,7 @@ namespace Wpf_UserAccount.Views
             viewModel.ResetInfoFocusAction += OnResetInfoFocusAction;
             viewModel.AfterUserLoginAction += NavigateToKakaoMapView;
             LoginContentView.DataContext = viewModel;
-            MainFrame.Navigate(LoginContentView);
+            _ = MainFrame.Navigate(LoginContentView);
         }
 
         /// <summary>
