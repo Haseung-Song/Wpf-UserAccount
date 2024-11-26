@@ -39,7 +39,7 @@ namespace Wpf_UserAccount.Views
         /// </summary>
         public void OnResetInfoFocusAction()
         {
-            LoginContentView?.txtUser.Focus();
+            _ = (LoginContentView?.txtUser.Focus());
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Wpf_UserAccount.Views
         /// </summary>
         public void NavigateToKakaoMapView()
         {
-            MainFrame.Navigate(new KakaoMapView());
+            _ = MainFrame.Navigate(new KakaoMapView());
             txtblkUserInfo.Text = "카카오 맵 화면";
         }
 
