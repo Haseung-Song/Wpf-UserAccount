@@ -1,4 +1,4 @@
-# [Side Project]_사용자 계정 생성 및 로그인 (현재 진행 중)
+# [Side Project]_사용자 계정 생성 및 로그인
 
 
 ## 1. 사용 언어, [UI], 사용 기술 및 [DB]
@@ -206,13 +206,15 @@
 
 
 ## 5-1. [로그인 이전] 초기 화면
-![사용자 정보 화면(240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/8068e46f-1a79-4a71-8eaf-234dfbad40b7)
+<img width="563" height="413" alt="로그인 이전  초기 화면" src="https://github.com/user-attachments/assets/6fc9900e-20f3-4168-b40f-e9537c1842b2" />
+
 
 
 
 
 ## 5-2. [로그인 성공] 캡처 화면
-![로그인 성공 화면 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/53677434-0327-404e-86e4-4f539c5d9d16)
+<img width="563" height="411" alt="로그인 성공  캡처 화면" src="https://github.com/user-attachments/assets/a3afe451-86cb-4b2d-aa5d-6ab7ec0a1759" />
+
 
 
 
@@ -224,13 +226,15 @@
 
 
 ## 6-2. [사용자 위치] 설정 화면 1 (지도)
-![사용자 위치 화면 1 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/782cf629-728c-4392-8ce8-14f3689d8195)
+<img width="563" height="413" alt="사용자 위치  설정 화면 1 (지도)" src="https://github.com/user-attachments/assets/baa31be0-f68d-42ec-9897-402a70851fed" />
+
 
 
 
 
 ## 6-3. [사용자 위치] 설정 화면 2 (스카이뷰)
-![사용자 위치 화면 2 (240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/66bc8354-9a27-498b-b404-a0e27fed9296)
+<img width="563" height="413" alt="사용자 위치  설정 화면 2 (스카이뷰)" src="https://github.com/user-attachments/assets/25681bb4-57ce-44f5-8bea-dc5948001f2e" />
+
 
 
 
