@@ -53,8 +53,8 @@
    <3> key-icon.png 이미지 파일
    - [패스워드 입력] 아이콘
      
-   <4> SOLETOP_03.png 이미지 파일
-   - [솔탑(SOLETOP) 기업] 아이콘
+   <4> kakao-image.png 이미지 파일
+   - [카카오(Kakao) 기업] 아이콘
      
    <5> user-icon.png 이미지 파일
    - [사용자 이름] 아이콘
@@ -205,41 +205,49 @@
 
 
 
-## 5-1. [로그인 이전] 초기 화면
-<img width="563" height="413" alt="로그인 이전  초기 화면" src="https://github.com/user-attachments/assets/6fc9900e-20f3-4168-b40f-e9537c1842b2" />
+## 5. 사용자 정보 화면
+<img width="467" height="344" alt="사용자 정보 화면" src="https://github.com/user-attachments/assets/04b2e495-5708-4044-aa36-8c629b44d35e" />
 
 
 
 
 
-## 5-2. [로그인 성공] 캡처 화면
-<img width="563" height="411" alt="로그인 성공  캡처 화면" src="https://github.com/user-attachments/assets/a3afe451-86cb-4b2d-aa5d-6ab7ec0a1759" />
+## 6-1. 회원가입 성공 화면
+<img width="563" height="412" alt="회원가입 성공 화면" src="https://github.com/user-attachments/assets/e3414c17-1de6-4717-ad6f-207d922300ba" />
 
 
 
 
 
-## 6-1. [로그인 이후] 초기 화면
-![카카오 맵 화면(240711)](https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/f260e26c-bcf5-4460-932f-fd3b594e50d4)
-
-
-
-
-## 6-2. [사용자 위치] 설정 화면 1 (지도)
-<img width="563" height="413" alt="사용자 위치  설정 화면 1 (지도)" src="https://github.com/user-attachments/assets/baa31be0-f68d-42ec-9897-402a70851fed" />
+## 6-2. [Login DB] File System 저장 화면
+<img width="928" height="469" alt="Login DB  File System 저장 화면" src="https://github.com/user-attachments/assets/203dc4a8-54a2-4dbc-a92d-adc0870023d3" />
 
 
 
 
 
-## 6-3. [사용자 위치] 설정 화면 2 (스카이뷰)
-<img width="563" height="413" alt="사용자 위치  설정 화면 2 (스카이뷰)" src="https://github.com/user-attachments/assets/25681bb4-57ce-44f5-8bea-dc5948001f2e" />
+## 6-3. 로그인 성공 화면
+<img width="563" height="411" alt="로그인 성공 화면" src="https://github.com/user-attachments/assets/e5d684a9-c471-4134-9b1d-f4b88d293140" />
 
 
 
 
 
-## 7. [App] 실행 후 기능 녹화
+## 7-1. 사용자 위치 표시 화면 (지도)
+<img width="563" height="413" alt="사용자 위치 표시 화면 (지도)" src="https://github.com/user-attachments/assets/a87d6285-f685-43cb-993d-bdc8eb67a414" />
+
+
+
+
+
+## 7-2. 사용자 위치 표시 화면 (스카이뷰)
+<img width="563" height="413" alt="사용자 위치 표시 화면 (스카이뷰)" src="https://github.com/user-attachments/assets/c9a2a2e9-0b8d-4c9a-93ff-4acf34fe1200" />
+
+
+
+
+
+## 8. [App] 실행 후 기능 녹화
 https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/af83086d-db28-436a-9d08-5a666a0b2d71
 
 
