@@ -205,6 +205,56 @@
 
 
 
+## 5. 기술적 성과
+### 1) MVVM 기반 구조 설계
+      - View / ViewModel / Model 역할 분리로 유지보수성과 확장성 확보
+      - Command 패턴(RelayCommand, ParameterRelayCommand) 직접 구현
+      - DataBinding 중심 구조로 UI와 로직 완전 분리
+
+### 2) SecureString 기반 보안 처리
+      - SecureString 활용하여 비밀번호 메모리 누출 최소화
+      - Custom Converter TO Secure <-> Unsecure 변환 구현
+      - 일반 PasswordBox 한계를 해결한 BindablePasswordBox 직접 구현
+
+### 3) 파일 시스템 기반 DB 설계
+      - 별도 DB 없이 userInfo.dat 활용하여 경량 사용자 관리 시스템 구현
+      - 사용자 정보 저장 / 조회 / 삭제 로직 직접 설계
+      - 중복 체크 + 유효성 검사 + 데이터 영속성 처리
+
+### 4) 사용자 인증 흐름 구현
+      - 회원가입 / 로그인 / 초기화 전체 로직 설계
+      - Username & Password 유효성 검사 로직 구축
+      - 로그인 성공 시, View 전환 및 후처리 이벤트 구성
+
+### 5) Custom Control 개발 (WPF 심화)
+      - BindablePasswordBox 제작 (DependencyProperty 활용)
+      - Password 표시/숨김 기능 구현
+      - WPF 기본 컨트롤 한계를 확장한 사례
+
+### 6) WebView2 + 외부 API 연동
+      - kakao Map API 연동
+      - WebView2 기반 웹 컨텐츠 로드
+      - 위치 권한 처리 및 지도 표시 기능 구현
+
+### 7) 사용자 경험(UX) 개선 기능
+      - 로그인 후, 자동 포커스 및 화면 전환 처리
+      - 창 크기 변경 / 최소화 / 최대화 이벤트 구현
+      - 직관적인 UI 흐름 설계
+
+### 8) 예외 처리 및 안정성 강화
+      - 입력값 검증 (Username / Password)
+      - 중복 사용자 방지 로직
+      - 중료 시, 사용자 데이터 삭제 처리 (OnProcessExit)
+
+
+
+
+## 6. 한 줄 요약
+      - WPF MVVM 기반 사용자 인증 시스템을 설계하고 보안.UI.데이터 처리 전반적인 흐름을 직접 구현한 프로젝트
+
+
+
+
 ## 5. 사용자 정보 화면
 <img width="467" height="344" alt="사용자 정보 화면" src="https://github.com/user-attachments/assets/04b2e495-5708-4044-aa36-8c629b44d35e" />
 
