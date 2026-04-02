@@ -254,43 +254,43 @@
 
 
 
-
-## 5. 사용자 정보 화면
+## 7. 스크린샷 화면
+### 7-1. 사용자 정보 화면
 <img width="467" height="344" alt="사용자 정보 화면" src="https://github.com/user-attachments/assets/04b2e495-5708-4044-aa36-8c629b44d35e" />
 
 
 
 
 
-## 6-1. 회원가입 성공 화면
+### 7-2. 회원가입 성공 화면
 <img width="563" height="412" alt="회원가입 성공 화면" src="https://github.com/user-attachments/assets/e3414c17-1de6-4717-ad6f-207d922300ba" />
 
 
 
 
 
-## 6-2. [Login DB] File System 저장 화면
+### 7-3. [Login DB] File System 저장 화면
 <img width="928" height="469" alt="Login DB  File System 저장 화면" src="https://github.com/user-attachments/assets/203dc4a8-54a2-4dbc-a92d-adc0870023d3" />
 
 
 
 
 
-## 6-3. 로그인 성공 화면
+### 7-4. 로그인 성공 화면
 <img width="563" height="411" alt="로그인 성공 화면" src="https://github.com/user-attachments/assets/e5d684a9-c471-4134-9b1d-f4b88d293140" />
 
 
 
 
 
-## 7-1. 사용자 위치 표시 화면 (지도)
+### 7-5. 사용자 위치 표시 화면 (지도)
 <img width="563" height="413" alt="사용자 위치 표시 화면 (지도)" src="https://github.com/user-attachments/assets/a87d6285-f685-43cb-993d-bdc8eb67a414" />
 
 
 
 
 
-## 7-2. 사용자 위치 표시 화면 (스카이뷰)
+### 7-6. 사용자 위치 표시 화면 (스카이뷰)
 <img width="563" height="413" alt="사용자 위치 표시 화면 (스카이뷰)" src="https://github.com/user-attachments/assets/c9a2a2e9-0b8d-4c9a-93ff-4acf34fe1200" />
 
 
