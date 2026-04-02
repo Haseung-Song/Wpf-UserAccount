@@ -1,4 +1,4 @@
-# [Side Project]_사용자 계정 생성 및 로그인
+# 🧑‍💻 [Side Project]_사용자 계정 생성 및 로그인
 
 ---
 
