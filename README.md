@@ -1,5 +1,6 @@
 # [Side Project]_사용자 계정 생성 및 로그인
 
+---
 
 ## 1. 사용 언어, [UI], 사용 기술 및 [DB]
 ### 1) 사용 언어: C#
@@ -8,8 +9,7 @@
 ### 4) 파일 시스템(File System): [DB] 생성
 ### 5) 카카오 맵 API 사용: [MAP] 도시
 
-
-
+---
 
 ## 2. [Wpf-UserAccount]_프로젝트
 ### 1) [Common]_Folder
@@ -111,7 +111,7 @@
    - [Geolocation] 요청의 [Permission] 처리 (사용자 위치 설정)
    - [위치 권한] 허용 여부 팝업 창 표시 (사용자 선택 설정)
 
-
+---
 
 ## 3. 버튼 및 텍스트 블럭
 #### [1] [사용자 회원가입]_버튼
@@ -120,8 +120,7 @@
 
 #### [3] [사용자 패스워드 초기화]_텍스트 블럭
 
-
-
+---
 
 ## 4. 기능 및 함수
 ### 1) 기능
@@ -202,8 +201,7 @@
 ####    * [함수] OnProcessExit(object sender, EventArgs e)
 -      [사용자 정보파일] 삭제하기
 
-
-
+---
 
 ## 5. 기술적 성과
 ### 1) MVVM 기반 구조 설계
@@ -246,59 +244,41 @@
       - 중복 사용자 방지 로직
       - 중료 시, 사용자 데이터 삭제 처리 (OnProcessExit)
 
-
-
+---
 
 ## 6. 한 줄 요약
       - WPF MVVM 기반 사용자 인증 시스템을 설계 및 보안.UI.데이터 처리 전반 직접 구현 프로젝트
 
-
+---
 
 ## 7. 프로그램 UI 구성
+---
 ### 7-1. 사용자 정보 화면
 <img width="467" height="344" alt="사용자 정보 화면" src="https://github.com/user-attachments/assets/04b2e495-5708-4044-aa36-8c629b44d35e" />
-
-
-
-
 
 ### 7-2. 회원가입 성공 화면
 <img width="563" height="412" alt="회원가입 성공 화면" src="https://github.com/user-attachments/assets/e3414c17-1de6-4717-ad6f-207d922300ba" />
 
-
-
-
-
 ### 7-3. [Login DB] File System 저장 화면
 <img width="928" height="469" alt="Login DB  File System 저장 화면" src="https://github.com/user-attachments/assets/203dc4a8-54a2-4dbc-a92d-adc0870023d3" />
-
-
-
-
 
 ### 7-4. 로그인 성공 화면
 <img width="563" height="411" alt="로그인 성공 화면" src="https://github.com/user-attachments/assets/e5d684a9-c471-4134-9b1d-f4b88d293140" />
 
-
-
-
-
 ### 7-5. 사용자 위치 표시 화면 (지도)
 <img width="563" height="413" alt="사용자 위치 표시 화면 (지도)" src="https://github.com/user-attachments/assets/a87d6285-f685-43cb-993d-bdc8eb67a414" />
-
-
-
-
 
 ### 7-6. 사용자 위치 표시 화면 (스카이뷰)
 <img width="563" height="413" alt="사용자 위치 표시 화면 (스카이뷰)" src="https://github.com/user-attachments/assets/c9a2a2e9-0b8d-4c9a-93ff-4acf34fe1200" />
 
+---
 
+### 8. 프로젝트 코드 화면
 
+<img width="1280" height="764" alt="프로젝트 코드 화면" src="https://github.com/user-attachments/assets/dc51f860-db4f-47c0-9338-e592cb23c192" />
 
+---
 
-## 8. [App] 실행 후 기능 녹화
-https://github.com/Haseung-Song/Wpf-UserAccount/assets/63398933/af83086d-db28-436a-9d08-5a666a0b2d71
 
 
 
