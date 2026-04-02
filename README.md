@@ -254,7 +254,7 @@
 
 
 
-## 7. 스크린샷 화면
+## 7. 프로그램 UI 구성
 ### 7-1. 사용자 정보 화면
 <img width="467" height="344" alt="사용자 정보 화면" src="https://github.com/user-attachments/assets/04b2e495-5708-4044-aa36-8c629b44d35e" />
 
