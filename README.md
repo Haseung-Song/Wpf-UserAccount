@@ -279,6 +279,10 @@
 
 ---
 
+## 12. 실행 방법
+```bash
+git clone https://github.com/사용자명/Bin_Obj_Delete_Project.git
+
 
 
 
